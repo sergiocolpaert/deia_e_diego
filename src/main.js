@@ -7,6 +7,7 @@ import './styles/texture.css';
 import { config, mapsHref } from './config.js';
 import { gallery, venue, venueSmall } from './gallery.js';
 import { applyLanguage } from './i18n.js';
+import { initMotion } from './motion.js';
 
 function renderGallery() {
   const grid = document.querySelector('[data-gallery]');
@@ -14,6 +15,9 @@ function renderGallery() {
     ...gallery.map((photo, i) => {
       const figure = document.createElement('figure');
       figure.className = 'gallery__item';
+      figure.dataset.reveal = '';
+      const frame = document.createElement('div');
+      frame.className = 'gallery__frame';
       const img = document.createElement('img');
       img.src = photo.src;
       img.srcset = `${photo.srcSmall} 800w, ${photo.src} 1600w`;
@@ -21,7 +25,8 @@ function renderGallery() {
       img.loading = 'lazy';
       img.decoding = 'async';
       img.dataset.i18nAttr = `alt:gallery.alt.${i}`;
-      figure.append(img);
+      frame.append(img);
+      figure.append(frame);
       return figure;
     })
   );
@@ -47,3 +52,4 @@ function wireLinks() {
 renderGallery();
 wireLinks();
 applyLanguage('pt');
+initMotion();

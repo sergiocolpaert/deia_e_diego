@@ -27,7 +27,7 @@ npm run images   # converte fotos de src/assets/images/originals em WebP (requer
 - [x] 3. Estilo base e responsividade
 - [x] 4. Textura leve + selo
 - [ ] 5. Conteúdo real (fotos + textos aprovados)
-- [ ] 6. Animações de scroll (GSAP)
+- [x] 6. Animações de scroll (GSAP)
 - [ ] 7. Toggle de idioma
 - [ ] 8. CTA casar.com (URL real)
 - [ ] 9. QA

@@ -25,7 +25,7 @@ body::before {
 
 /* A carta e as fotos ganham o mesmo grão, num papel um pouco mais claro */
 .letter__paper,
-.gallery__item {
+.gallery__frame {
   background-color: #FDF9F1;
   background-image: var(--paper-grain);
 }
@@ -77,12 +77,12 @@ body::before {
   mask: url('../assets/images/monograma.png') center / contain no-repeat;
 }
 
+/* Selos são animados pelo GSAP: nada de translate/rotate no próprio elemento */
 .seal--letter {
   position: absolute;
-  bottom: 0;
-  left: 50%;
-  translate: -50% 50%;
-  rotate: -8deg;
+  bottom: calc(var(--seal-size) / -2);
+  left: calc(50% - var(--seal-size) / 2);
 }
+.seal--letter::after { rotate: -8deg; }
 
 .seal--small { --seal-size: 3.5rem; }

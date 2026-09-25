@@ -41,3 +41,6 @@ button { font: inherit; color: inherit; background: none; border: 0; cursor: poi
 
 /* Campo de conteúdo vazio (ex.: subtítulo opcional não preenchido) */
 .is-empty { display: none !important; }
+
+/* Estado inicial dos elementos animados (só com .motion — ver <head> e motion.js) */
+.motion [data-reveal] { visibility: hidden; opacity: 0; }
