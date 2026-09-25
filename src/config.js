@@ -7,7 +7,8 @@ export const config = {
   venue: {
     name: 'Espaço Barcelona',
     city: 'Niterói · RJ',
-    // Link oficial do Google Maps — PENDENTE (usa busca pelo nome como fallback)
+    address: 'Estrada Leopoldo Fróes, 166 B - São Francisco, Niterói - RJ',
+    // Link oficial do Google Maps (opcional) — sem ele, o botão busca pelo endereço
     mapsUrl: null,
   },
 
@@ -17,4 +18,4 @@ export const config = {
 
 export const mapsHref = () =>
   config.venue.mapsUrl ??
-  `https://www.google.com/maps/search/?api=1&query=${encodeURIComponent(`${config.venue.name} Niterói RJ`)}`;
+  `https://www.google.com/maps/search/?api=1&query=${encodeURIComponent(`${config.venue.name}, ${config.venue.address}`)}`;

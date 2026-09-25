@@ -40,7 +40,7 @@ export default {
     where: {
       label: 'Onde',
       value: 'Espaço Barcelona',
-      sub: 'Niterói · RJ — endereço [a confirmar]',
+      sub: 'Estrada Leopoldo Fróes, 166 B · São Francisco, Niterói – RJ',
       note: 'Cerimônia e festa no mesmo lugar',
     },
     dress: {

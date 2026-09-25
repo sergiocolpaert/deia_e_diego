@@ -41,7 +41,7 @@ O convite abre em espanhol se o link tiver `?lang=es`, se o convidado já escolh
 
 - [ ] Direção criativa confirmada (adotada: **A — carta**)
 - [ ] Texto da carta (PT e ES)
-- [ ] Endereço completo do Espaço Barcelona → `src/content/*.js` + `config.venue.mapsUrl`
+- [x] Endereço completo do Espaço Barcelona (Estrada Leopoldo Fróes, 166 B)
 - [ ] Horário de chegada
 - [ ] Dress code
 - [ ] URL real do casar.com → `config.rsvpUrl`
