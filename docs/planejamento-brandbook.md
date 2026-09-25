@@ -60,7 +60,7 @@ Todas estão no Google Fonts (licença livre), então a troca é direta. Atenç�
 - Versões: **principal** (A & E + ramo de oliva + ponto dourado), **reduzida** (A E sobre o traço de três pontos), **círculo**, **negativa** (sobre terracota) e **dourada**.
 - Regras: área de proteção, tamanho mínimo de 1,5 cm e usos incorretos (não recolorir, não trocar o ramo, não sobrepor folhagem às letras).
 - Letras em serifa clássica (estilo Cinzel) na cor ouro/bronze.
-- ⚠️ **A & E ≠ Andrea & Diego.** Pode ser erro do material ou outro nome/apelido do noivo. **Bloqueante.**
+- ✅ O brand book mostra **A & E**, mas o casal confirmou **A & D**. Mantemos o monograma atual (letras A e D ligadas por um floreio), em ouro.
 
 ### 2.5 Elementos gráficos e ilustrações
 - **Manchas de aquarela** nas quatro cores.
@@ -99,7 +99,7 @@ O brand book tem sinais claros de geração por IA. Por isso não dá para tirar
 | Informações | Filetes navy/cinza | Coração + traço de pontos como divisores | Trocar divisores; incluir **16h30** |
 | Como chegar | Foto do local (placeholder) | Ilustração do Pão de Açúcar | Usar o **Pão de Açúcar em aquarela**: é a vista do Espaço Barcelona, em Niterói, para o Rio |
 | RSVP | Faixa navy, botão em gradiente | Versão negativa (terracota) + "Contamos com você!" | Faixa em terracota profunda, texto off-white, botão off-white |
-| Selo | Cera terracota + A&D | Lacre terracota no envelope | Manter o selo; trocar o monograma após a pendência A&E |
+| Selo | Cera terracota + A&D | Lacre terracota no envelope | Manter o selo com o monograma A & D, na terracota da marca |
 | Textura | Grão de papel + vinheta | Papel texturizado + aquarela | Manter o grão bem sutil; aquarelas nos cantos das seções, com moderação |
 | Favicon | Selo sem letras | Monograma reduzido | Monograma reduzido ou selo com as iniciais |
 | Animações | Fade/slide, selo carimbando | — | Acrescentar o **traço dos três pontos se desenhando** no scroll; aquarelas surgindo em fade lento |
