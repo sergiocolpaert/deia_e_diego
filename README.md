@@ -37,6 +37,10 @@ O convite abre em espanhol se o link tiver `?lang=es`, se o convidado já escolh
 - [ ] 9. QA
 - [ ] 10. Deploy
 
+## Brand book
+
+A adaptação à identidade visual "Três países. Uma história." está planejada em [docs/planejamento-brandbook.md](docs/planejamento-brandbook.md) (fases B1–B8).
+
 ## Pendências com o casal
 
 - [ ] Direção criativa confirmada (adotada: **A — carta**)
