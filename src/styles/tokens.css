@@ -1,0 +1,60 @@
+/* ==========================================================================
+   Tokens — paleta, tipografia e espaçamento (fonte única de verdade)
+   Navy = tinta/estrutura · Terracota = luz/calor/CTA · Oliva/mustard = só ilustração
+   ========================================================================== */
+:root {
+  /* Paleta base (aprovada na v4) */
+  --creme: #F9F4EA;
+  --creme-dark: #EEE1CF;
+  --navy: #232D42;
+  --navy-80: rgba(35, 45, 66, 0.8);
+  --navy-60: rgba(35, 45, 66, 0.6);
+  --navy-15: rgba(35, 45, 66, 0.15);
+  --terracota: #BC603C;
+  --terracota-medium: #D6905F;
+  --terracota-light: #E1A180;
+  --olive: #81885C;         /* ilustração apenas */
+  --olive-light: #A4AF91;   /* ilustração apenas */
+  --mustard: #D4AF37;       /* ilustração apenas */
+
+  /* Papéis funcionais */
+  --bg: var(--creme);
+  --bg-alt: var(--creme-dark);
+  --text: var(--navy);
+  --text-muted: var(--navy-60);
+  --rule: var(--navy-15);
+  --accent: var(--terracota);
+  --gradient-warm: linear-gradient(135deg, var(--terracota) 0%, var(--terracota-medium) 60%, var(--terracota-light) 100%);
+
+  /* Tipografia */
+  --font-serif: 'Cormorant Garamond', Georgia, 'Times New Roman', serif;
+  --font-script: 'Great Vibes', 'Snell Roundhand', cursive;
+  --font-sans: 'Jost', 'Helvetica Neue', Arial, sans-serif;
+
+  --fs-xs: 0.75rem;                              /* 12 — eyebrows/labels */
+  --fs-sm: 0.875rem;                             /* 14 */
+  --fs-base: clamp(1.125rem, 1.05rem + 0.35vw, 1.3rem); /* corpo serif */
+  --fs-lg: clamp(1.4rem, 1.2rem + 0.9vw, 1.9rem);
+  --fs-xl: clamp(2rem, 1.6rem + 2vw, 3.2rem);
+  --fs-script: clamp(3.4rem, 2.4rem + 6vw, 7.5rem);
+
+  --tracking-wide: 0.28em;
+
+  /* Espaçamento */
+  --space-1: 0.5rem;
+  --space-2: 1rem;
+  --space-3: 1.5rem;
+  --space-4: 2.5rem;
+  --space-5: 4rem;
+  --space-6: clamp(5rem, 4rem + 6vw, 9rem);      /* respiro entre seções */
+
+  --measure: 34rem;                              /* largura de leitura da carta */
+  --container: 68rem;
+  --gutter: clamp(1.25rem, 5vw, 2.5rem);
+
+  /* Movimento */
+  --ease-out: cubic-bezier(0.19, 1, 0.22, 1);
+
+  --radius: 2px;
+  --shadow-soft: 0 24px 48px -24px rgba(35, 45, 66, 0.35);
+}
