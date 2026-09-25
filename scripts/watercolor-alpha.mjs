@@ -1,5 +1,6 @@
 // Remove o fundo branco/papel das aquarelas da marca e gera WebP com transparência.
 // Uso: npm run brand-assets   (lê de ./assets, escreve em src/assets/brand)
+// Imagens em ./assets/transparentes já vêm com alfa: só recorte, aparo e compressão.
 //
 // Técnica "cor para alfa" (como o Color to Alpha do GIMP): a aquarela é tinta
 // translúcida sobre papel, então cada pixel vira (cor do pigmento, opacidade) tal
@@ -25,7 +26,6 @@ const ASSETS = [
   { src: 'magnific_abstract-watercolor-paint_vQl8N1Oa47.png', out: 'faixa-pessego', width: 800, quality: 70 },
   { src: 'magnific_abstract-watercolor-paint_w4WsB6i7EI.png', out: 'faixa-verde', width: 800, quality: 70, t0: 0.07, t1: 0.16 },
   { src: 'magnific_abstract-watercolor-paint_yiVUmiBPW9.png', out: 'faixa-verde-terracota', width: 800, quality: 70 },
-  { src: 'magnific_loose-watercolor-floral-b_lJGrMD3gv9.png', out: 'buque-rosas', width: 800, quality: 78 },
   { src: 'magnific_romantic-watercolor-lands_79clBToJAL.png', out: 'pao-de-acucar', width: 1100, quality: 78 },
   // Folha de elementos pequenos: recortada em peças
   { src: 'magnific_set-of-small-delicate-wat_s7A1M06l8e.png', out: 'passaros', crop: [140, 190, 520, 215] },
@@ -38,6 +38,17 @@ const ASSETS = [
   { src: 'magnific_small-stylized-watercolor_6AdyaYliJO.png', out: 'cristo-redentor', width: 700 },
   { src: 'magnific_watercolor-illustration-o_jUZKTN3LD0.png', out: 'palmeiras-mancha', width: 700, t0: 0.06, t1: 0.14 },
   { src: 'magnific_watercolor-illustration-o_rg3bThoxtc.png', out: 'palmeiras-ilha', width: 700, t0: 0.06, t1: 0.14 },
+
+  // Já transparentes (./assets/transparentes)
+  { src: 'transparentes/magnific_loose-watercolor-floral-b_VXQY7JXMMU.png', out: 'buque-rosas', width: 800, quality: 80, transparent: true },
+  // recorte exclui a assinatura do artista no canto inferior direito
+  { src: 'transparentes/magnific_single-watercolor-flower-_BhkDZHPoQR.png', out: 'flor-peonia', width: 700, quality: 80, transparent: true, crop: [0, 0, 1200, 830] },
+  { src: 'transparentes/magnific_delicate-watercolor-sprig_IfxdGnwtvE.png', out: 'raminho-botoes', width: 700, quality: 80, transparent: true },
+  { src: 'transparentes/magnific_delicate-watercolor-sprig_rg3btVpxtc.png', out: 'raminho-flores-rosa', width: 700, quality: 80, transparent: true },
+  { src: 'transparentes/magnific_soft-rounded-abstract-wat_Tdun4wHVNR.png', out: 'mancha-suave-terracota', width: 800, quality: 70, transparent: true },
+  { src: 'transparentes/magnific_soft-rounded-abstract-wat_xSR5hQnjfW.png', out: 'mancha-suave-verde', width: 800, quality: 70, transparent: true },
+  { src: 'transparentes/magnific_romantic-watercolor-illus_Lw2kmhoswO.png', out: 'casa-vista-rio', width: 1100, quality: 78, transparent: true },
+  { src: 'transparentes/magnific_romantic-watercolor-lands_N2eOkOc6D9.png', out: 'pao-de-acucar-mar', width: 1100, quality: 78, transparent: true },
 ];
 
 const smoothstep = (a, b, x) => {
@@ -62,7 +73,21 @@ async function whitePoint(file) {
   return ch.map((v) => v.sort((a, b) => a - b)[v.length >> 1]);
 }
 
-async function process({ src, out, crop, width, t0 = 0.04, t1 = 0.12, quality = 82 }) {
+async function passthrough({ src, out, crop, width, quality }) {
+  let pipeline = sharp(`${SRC}/${src}`).ensureAlpha();
+  if (crop) pipeline = pipeline.extract({ left: crop[0], top: crop[1], width: crop[2], height: crop[3] });
+  // extract/trim precisam de buffers intermediários para encadear
+  pipeline = sharp(await pipeline.png().toBuffer()).trim({ threshold: 1 });
+  if (width) pipeline = pipeline.resize({ width, withoutEnlargement: true });
+  return pipeline.webp({ quality, alphaQuality: 85, effort: 6 });
+}
+
+async function process({ src, out, crop, width, t0 = 0.04, t1 = 0.12, quality = 82, transparent }) {
+  if (transparent) {
+    const result = await (await passthrough({ src, out, crop, width, quality })).toFile(`${OUT}/${out}.webp`);
+    console.log(`✓ ${out}.webp  ${result.width}×${result.height}  ${(result.size / 1024).toFixed(0)} KB  (já transparente)`);
+    return;
+  }
   const file = `${SRC}/${src}`;
   const white = await whitePoint(file);
 

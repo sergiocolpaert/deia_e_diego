@@ -29,7 +29,10 @@ function renderGallery() {
       img.loading = 'lazy';
       img.decoding = 'async';
       img.dataset.i18nAttr = `alt:gallery.alt.${i}`;
-      frame.append(img);
+      const photoBox = document.createElement('div');
+      photoBox.className = 'gallery__photo';
+      photoBox.append(img);
+      frame.append(photoBox);
       figure.append(frame);
       return figure;
     })

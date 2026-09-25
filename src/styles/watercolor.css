@@ -13,49 +13,58 @@
 }
 .deco img { width: 100%; }
 
-/* 1. Hero ------------------------------------------------------------------- */
-.deco--hero-stain-tr {
-  top: -1.5rem;
-  right: -5rem;
-  width: clamp(15rem, 52vw, 34rem);
+/* 1. Hero: diagonal — buquê no alto à esquerda, peônia embaixo à direita -------
+   (o canto superior direito fica livre para o seletor de idioma) */
+.deco--hero-stain-tl {
+  top: -4rem;
+  left: -7rem;
+  width: clamp(15rem, 50vw, 32rem);
 }
-.deco--hero-stain-tr img { rotate: -14deg; opacity: 0.7; }
+.deco--hero-stain-tl img { rotate: -8deg; opacity: 0.55; }
 
-.deco--hero-roses {
-  top: -1.25rem;
-  right: -3rem;
-  width: clamp(10.5rem, 30vw, 21rem);
+.deco--hero-bouquet {
+  top: -2.5rem;
+  left: -3.5rem;
+  width: clamp(11rem, 32vw, 23rem);
 }
-.deco--hero-roses img { rotate: -10deg; }
+.deco--hero-bouquet img { rotate: 12deg; }
 
-.deco--hero-stain-bl {
-  bottom: 2rem;
-  left: -6rem;
-  width: clamp(14rem, 46vw, 30rem);
+.deco--hero-stain-br {
+  bottom: -5rem;
+  right: -8rem;
+  width: clamp(15rem, 48vw, 30rem);
 }
-.deco--hero-stain-bl img { rotate: 16deg; opacity: 0.6; }
+.deco--hero-stain-br img { rotate: 10deg; opacity: 0.45; }
 
 .deco--hero-sprig {
-  bottom: -0.5rem;
-  left: 0.75rem;
-  width: clamp(4.25rem, 10vw, 7rem);
+  bottom: 5.5rem;
+  right: -2.5rem;
+  width: clamp(8rem, 22vw, 15rem);
 }
-.deco--hero-sprig img { rotate: 10deg; }
+.deco--hero-sprig img { rotate: -35deg; opacity: 0.9; }
+
+.deco--hero-flower {
+  bottom: -2rem;
+  right: -1.5rem;
+  width: clamp(8.5rem, 24vw, 16rem);
+}
+.deco--hero-flower img { rotate: -12deg; }
 
 /* Telas baixas: as aquarelas encolhem para não encostar no conteúdo */
 @media (max-height: 44rem) {
-  .deco--hero-roses { width: clamp(8rem, 22vw, 16rem); }
+  .deco--hero-bouquet { width: clamp(8rem, 22vw, 16rem); }
+  .deco--hero-flower { width: clamp(7rem, 18vw, 12rem); }
   .deco--hero-sprig { display: none; }
 }
 
-/* 2. Carta ------------------------------------------------------------------ */
-.deco--letter-olive {
-  top: -2.25rem;
-  left: -1.75rem;
+/* 2. Carta: raminho de botões, sutil, no canto do papel --------------------- */
+.deco--letter-sprig {
+  top: -1.5rem;
+  left: -1.25rem;
   z-index: 1;
-  width: clamp(8.5rem, 28vw, 12.5rem);
+  width: clamp(7rem, 22vw, 10rem);
 }
-.deco--letter-olive img { rotate: -20deg; }
+.deco--letter-sprig img { rotate: -18deg; opacity: 0.85; }
 
 .letter__heart {
   width: 1.5rem;

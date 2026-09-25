@@ -35,11 +35,13 @@
     <main>
       <!-- 1. Hero -->
       <section class="hero" id="inicio">
-        <!-- Aquarelas de canto (brand book: "usar com moderação") -->
-        <div class="deco deco--hero-stain-tr" data-reveal="deco" aria-hidden="true"><img src="/src/assets/brand/faixa-pessego.webp" alt="" width="800" height="374" fetchpriority="high" decoding="async" /></div>
-        <div class="deco deco--hero-roses" data-reveal="deco" aria-hidden="true"><img src="/src/assets/brand/buque-rosas.webp" alt="" width="800" height="686" fetchpriority="high" decoding="async" /></div>
-        <div class="deco deco--hero-stain-bl" data-reveal="deco" aria-hidden="true"><img src="/src/assets/brand/faixa-verde-terracota.webp" alt="" width="800" height="310" fetchpriority="high" decoding="async" /></div>
-        <div class="deco deco--hero-sprig" data-reveal="deco" aria-hidden="true"><img src="/src/assets/brand/raminho-flores.webp" alt="" width="244" height="566" fetchpriority="high" decoding="async" /></div>
+        <!-- Aquarelas de canto em diagonal (brand book: "usar com moderação").
+             data-parallax = velocidade relativa na rolagem -->
+        <div class="deco deco--hero-stain-tl" data-reveal="deco" data-parallax="0.35" aria-hidden="true"><img src="/src/assets/brand/mancha-suave-terracota.webp" alt="" width="800" height="589" fetchpriority="high" decoding="async" /></div>
+        <div class="deco deco--hero-bouquet" data-reveal="deco" data-parallax="0.6" aria-hidden="true"><img src="/src/assets/brand/buque-rosas.webp" alt="" width="800" height="686" fetchpriority="high" decoding="async" /></div>
+        <div class="deco deco--hero-stain-br" data-reveal="deco" data-parallax="0.25" aria-hidden="true"><img src="/src/assets/brand/mancha-suave-verde.webp" alt="" width="800" height="577" fetchpriority="high" decoding="async" /></div>
+        <div class="deco deco--hero-sprig" data-reveal="deco" data-parallax="0.4" aria-hidden="true"><img src="/src/assets/brand/raminho-flores-rosa.webp" alt="" width="700" height="480" fetchpriority="high" decoding="async" /></div>
+        <div class="deco deco--hero-flower" data-reveal="deco" data-parallax="0.5" aria-hidden="true"><img src="/src/assets/brand/flor-peonia.webp" alt="" width="700" height="706" fetchpriority="high" decoding="async" /></div>
         <div class="hero__inner">
           <p class="eyebrow" data-reveal="intro" data-i18n="hero.eyebrow"></p>
           <div class="monogram hero__monogram" data-reveal="intro" role="img" aria-label="A & D"></div>
@@ -49,16 +51,19 @@
           <p class="hero__place" data-reveal="intro" data-i18n="hero.place"></p>
           <p class="hero__tagline" data-reveal="intro" data-i18n="hero.tagline"></p>
         </div>
-        <a class="hero__scroll" href="#carta" data-reveal="intro">
-          <span data-i18n="hero.scroll"></span>
-          <span class="hero__scroll-line" aria-hidden="true"></span>
-        </a>
+        <!-- .hero__cue recebe o parallax; o link dentro dele, a animação de entrada -->
+        <div class="hero__cue">
+          <a class="hero__scroll" href="#carta" data-reveal="intro">
+            <span data-i18n="hero.scroll"></span>
+            <span class="hero__scroll-line" aria-hidden="true"></span>
+          </a>
+        </div>
       </section>
 
       <!-- 2. Carta -->
       <section class="letter" id="carta" aria-labelledby="letter-greeting">
         <article class="letter__paper" data-reveal>
-          <div class="deco deco--letter-olive" aria-hidden="true"><img src="/src/assets/brand/ramo-oliveira.webp" alt="" width="894" height="470" loading="lazy" decoding="async" /></div>
+          <div class="deco deco--letter-sprig" data-parallax="0.2" aria-hidden="true"><img src="/src/assets/brand/raminho-botoes.webp" alt="" width="700" height="433" loading="lazy" decoding="async" /></div>
           <p class="letter__greeting" id="letter-greeting" data-i18n="letter.greeting"></p>
           <div class="letter__body" data-i18n-list="letter.body"></div>
           <footer class="letter__sign">
@@ -96,7 +101,7 @@
 
       <!-- 4. Galeria -->
       <section class="gallery" id="fotos" aria-labelledby="gallery-title">
-        <div class="deco deco--gallery-stain" data-reveal="deco" aria-hidden="true"><img src="/src/assets/brand/faixa-terracota-oliva.webp" alt="" width="800" height="332" loading="lazy" decoding="async" /></div>
+        <div class="deco deco--gallery-stain" data-reveal="deco" data-parallax="0.3" aria-hidden="true"><img src="/src/assets/brand/faixa-terracota-oliva.webp" alt="" width="800" height="332" loading="lazy" decoding="async" /></div>
         <h2 class="section-title" id="gallery-title" data-reveal data-i18n="gallery.title"></h2>
         <div class="gallery__grid" data-gallery></div>
       </section>
@@ -134,7 +139,7 @@
       <!-- 6. Como chegar -->
       <section class="map" id="como-chegar" aria-labelledby="map-title">
         <figure class="map__figure" data-reveal>
-          <img src="/src/assets/brand/pao-de-acucar.webp" width="1061" height="746" loading="lazy" decoding="async" data-i18n-attr="alt:map.alt" />
+          <img src="/src/assets/brand/casa-vista-rio.webp" width="1100" height="791" loading="lazy" decoding="async" data-parallax="0.12" data-i18n-attr="alt:map.alt" />
         </figure>
         <div class="map__body" data-reveal>
           <h2 class="section-title" id="map-title" data-i18n="map.title"></h2>
@@ -159,8 +164,8 @@
 
     <!-- 8. Rodapé -->
     <footer class="site-footer">
-      <div class="deco deco--footer-palms" data-reveal="deco" aria-hidden="true"><img src="/src/assets/brand/palmeiras-mancha.webp" alt="" width="466" height="752" loading="lazy" decoding="async" /></div>
-      <div class="deco deco--footer-stain" data-reveal="deco" aria-hidden="true"><img src="/src/assets/brand/mancha-terracota-oliva.webp" alt="" width="800" height="544" loading="lazy" decoding="async" /></div>
+      <div class="deco deco--footer-palms" data-reveal="deco" data-parallax="0.25" aria-hidden="true"><img src="/src/assets/brand/palmeiras-mancha.webp" alt="" width="466" height="752" loading="lazy" decoding="async" /></div>
+      <div class="deco deco--footer-stain" data-reveal="deco" data-parallax="0.4" aria-hidden="true"><img src="/src/assets/brand/mancha-terracota-oliva.webp" alt="" width="800" height="544" loading="lazy" decoding="async" /></div>
       <div class="seal seal--small" data-reveal="stamp" role="img" aria-label="A & D"></div>
       <p class="site-footer__signoff" data-reveal data-i18n="footer.signoff"></p>
       <p class="site-footer__line" data-i18n="footer.line"></p>

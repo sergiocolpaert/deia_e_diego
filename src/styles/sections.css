@@ -11,7 +11,8 @@ main > section {
   place-items: center;
   min-height: 100svh;
   text-align: center;
-  overflow: hidden;
+  /* sem overflow: hidden, senão as aquarelas em parallax são cortadas em linha reta;
+     a rolagem lateral é contida por overflow-x: clip no html/body */
 }
 
 .hero__inner {
@@ -69,12 +70,16 @@ main > section {
   color: var(--terracota-deep);
 }
 
-.hero__scroll {
+.hero__cue {
   position: absolute;
   bottom: var(--space-3);
   inset-inline: 0;
+  z-index: 1;
   width: fit-content;
   margin-inline: auto;
+}
+
+.hero__scroll {
   display: grid;
   justify-items: center;
   gap: 0.75rem;
@@ -107,7 +112,7 @@ main > section {
 
 /* Em telas baixas a seta encostaria no conteúdo */
 @media (max-height: 44rem) {
-  .hero__scroll { display: none; }
+  .hero__cue { display: none; }
 }
 
 /* 2. Carta ----------------------------------------------------------------- */
@@ -203,11 +208,16 @@ main > section {
   background: var(--papel);
   box-shadow: var(--shadow-soft);
 }
-.gallery__frame img {
-  width: 100%;
-  aspect-ratio: 2 / 3;                    /* fotos do casal são retrato 2:3 */
-  object-fit: cover;
+/* Janela 2:3 (fotos do casal são retrato); a foto desliza dentro dela */
+.gallery__photo {
+  overflow: hidden;
+  aspect-ratio: 2 / 3;
   background: var(--bg-alt);
+}
+.gallery__photo img {
+  width: 100%;
+  height: 114%;                           /* folga para o parallax interno */
+  object-fit: cover;
 }
 
 @media (min-width: 48rem) {

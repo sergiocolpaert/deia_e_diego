@@ -164,16 +164,18 @@ As fases B1, B2 e B5 (parcial) não dependem da cliente e podem começar já.
 
 | Elemento | Onde |
 | --- | --- |
-| Buquê de rosas + faixa pêssego | Hero, canto superior direito |
-| Raminho de flores + faixa verde-terracota | Hero, canto inferior esquerdo |
-| Ramo de oliveira | Canto do papel da carta |
+| Buquê de rosas + mancha suave terracota | Hero, canto superior esquerdo |
+| Peônia + raminho de flores rosa + mancha suave verde | Hero, canto inferior direito |
+| Raminho de botões | Canto do papel da carta |
 | Coração | Despedida da carta |
 | Pássaros | Acima do traço em "Três países" |
 | Faixa terracota-oliva | Atrás do título "Nós dois" |
 | Raminho | Divisor entre os blocos de Informações |
-| Pão de Açúcar | "Como chegar" |
+| Casa com vista para o Pão de Açúcar e o Cristo | "Como chegar" |
 | Palmeiras + mancha terracota-oliva | Rodapé |
-| **Reserva** (processados, não usados) | Cristo Redentor, palmeiras na ilha, manchas terracota-rosa e terracota-verde, faixa verde, raminho vertical, traço de pontos |
+| **Reserva** (processados, não usados) | Pão de Açúcar (duas versões), Cristo Redentor, palmeiras na ilha, ramo de oliveira, raminho de flores, manchas e faixas antigas, raminho vertical, traço de pontos |
+
+**Parallax** (`data-parallax` no HTML, velocidade relativa): aquarelas do hero sobem em ritmos diferentes ao rolar; o conteúdo do hero desce devagar e esmaece; as fotos da galeria deslizam dentro da moldura; carta, galeria, "Como chegar" e rodapé têm aquarelas em profundidade. Tudo desligado com "reduzir movimento".
 
 Na sequência, entram as fases 8 (URL do casar.com), 9 (QA final) e 10 (deploy) do plano v1.
 

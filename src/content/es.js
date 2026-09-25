@@ -68,7 +68,7 @@ export default {
   map: {
     title: 'Cómo llegar',
     cta: 'Abrir en el mapa',
-    alt: 'Ilustración en acuarela del Pan de Azúcar al atardecer, la vista de Niterói hacia Río',
+    alt: 'Ilustración en acuarela de una casa con balcones entre palmeras, con vista al Pan de Azúcar y al Cristo Redentor al atardecer',
   },
 
   rsvp: {

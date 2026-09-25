@@ -5,6 +5,7 @@
 //   data-reveal="stamp"   → selo "carimbando"
 //   data-reveal="route"   → traço dos três pontos se desenha, contas acendem, nomes surgem
 //   data-reveal="deco"    → aquarela surge em fade lento (as do hero, na abertura)
+//   data-parallax="0.4"   → desloca na rolagem; o número é a velocidade relativa
 // Com prefers-reduced-motion a classe .motion não é aplicada e nada aqui roda.
 import { gsap } from 'gsap';
 import { ScrollTrigger } from 'gsap/ScrollTrigger';
@@ -64,6 +65,68 @@ function decos() {
   );
 }
 
+// Parallax ------------------------------------------------------------------
+// Distância proporcional à altura da tela, para o efeito ter o mesmo peso no
+// celular e no desktop. Recalculada a cada refresh (resize, troca de idioma).
+const travel = (speed) => () => speed * window.innerHeight * 0.35;
+
+function parallax() {
+  gsap.utils.toArray('[data-parallax]').forEach((el) => {
+    const speed = parseFloat(el.dataset.parallax) || 0.2;
+    const hero = el.closest('.hero');
+
+    if (hero) {
+      // No hero a página já começa no topo: os elementos só sobem, cada um no seu ritmo
+      gsap.to(el, {
+        y: () => -travel(speed)() * 1.6,
+        ease: 'none',
+        scrollTrigger: { trigger: hero, start: 'top top', end: 'bottom top', scrub: 0.6, invalidateOnRefresh: true },
+      });
+      return;
+    }
+
+    gsap.fromTo(
+      el,
+      { y: travel(speed) },
+      {
+        y: () => -travel(speed)(),
+        ease: 'none',
+        scrollTrigger: {
+          trigger: el.closest('section, footer') ?? el,
+          start: 'top bottom',
+          end: 'bottom top',
+          scrub: 0.6,
+          invalidateOnRefresh: true,
+        },
+      }
+    );
+  });
+
+  // Conteúdo do hero desce mais devagar que a página e esmaece ao sair;
+  // o convite "Abra a carta" acompanha e some primeiro
+  const heroScroll = { trigger: '.hero', start: 'top top', end: 'bottom top', scrub: 0.6, invalidateOnRefresh: true };
+  gsap.to('.hero__inner', { y: () => window.innerHeight * 0.18, opacity: 0.25, ease: 'none', scrollTrigger: heroScroll });
+  gsap.to('.hero__cue', {
+    y: () => window.innerHeight * 0.18,
+    opacity: 0,
+    ease: 'none',
+    scrollTrigger: { ...heroScroll, end: '35% top' },
+  });
+
+  // Fotos da galeria deslizam dentro da moldura
+  gsap.utils.toArray('.gallery__photo img').forEach((img) => {
+    gsap.fromTo(
+      img,
+      { yPercent: 0 },
+      {
+        yPercent: -12,
+        ease: 'none',
+        scrollTrigger: { trigger: img.closest('.gallery__photo'), start: 'top bottom', end: 'bottom top', scrub: true },
+      }
+    );
+  });
+}
+
 const FADE_UP = { autoAlpha: 1, y: 0, startAt: { y: 40 }, duration: 1.4, ease: EASE, stagger: 0.15 };
 const STAMP = { autoAlpha: 1, scale: 1, startAt: { scale: 1.6 }, duration: 0.7, ease: 'back.out(2.2)' };
 
@@ -117,7 +180,9 @@ function revealPassed() {
     .toArray('[data-reveal]:not([data-revealed])')
     .filter((el) => el.getBoundingClientRect().bottom < 0);
   passed.forEach((el) => (el.dataset.revealed = ''));
-  gsap.set(passed, { autoAlpha: 1, y: 0, scale: 1 });
+  // quem tem parallax mantém o y controlado pelo scrub
+  gsap.set(passed.filter((el) => !el.hasAttribute('data-parallax')), { autoAlpha: 1, y: 0, scale: 1 });
+  gsap.set(passed.filter((el) => el.hasAttribute('data-parallax')), { autoAlpha: 1, scale: 1 });
 }
 
 export function initMotion() {
@@ -129,6 +194,7 @@ export function initMotion() {
   stamps();
   routes();
   decos();
+  parallax();
   ScrollTrigger.addEventListener('refresh', revealPassed);
 
   // Fontes web mudam a altura das seções: recalcula os gatilhos quando carregarem

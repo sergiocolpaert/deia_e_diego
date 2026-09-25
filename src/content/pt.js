@@ -70,7 +70,7 @@ export default {
   map: {
     title: 'Como chegar',
     cta: 'Abrir no mapa',
-    alt: 'Ilustração em aquarela do Pão de Açúcar ao pôr do sol, a vista de Niterói para o Rio',
+    alt: 'Ilustração em aquarela de uma casa com varandas entre palmeiras, com vista para o Pão de Açúcar e o Cristo Redentor ao pôr do sol',
   },
 
   rsvp: {
