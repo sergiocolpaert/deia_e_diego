@@ -1,5 +1,7 @@
 import './styles/tokens.css';
 import './styles/base.css';
+import './styles/components.css';
+import './styles/sections.css';
 
 import { config, mapsHref } from './config.js';
 import { gallery, venue, venueSmall } from './gallery.js';
