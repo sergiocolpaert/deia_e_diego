@@ -18,6 +18,7 @@ npm run images   # converte fotos de src/assets/images/originals em WebP (requer
 | Textos PT / ES | `src/content/pt.js`, `src/content/es.js` |
 | Data, local, links (casar.com, mapa) | `src/config.js` |
 | Cores, fontes, espaçamentos | `src/styles/tokens.css` |
+| Ornamentos (traço dos três pontos) | `src/ornaments.js` |
 | Fotos | coloque em `src/assets/images/originals/`, rode `npm run images`, ajuste `src/gallery.js` |
 
 ## Idioma

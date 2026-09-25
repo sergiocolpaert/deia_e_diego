@@ -16,9 +16,10 @@ body {
   min-height: 100svh;
   background-color: var(--bg);
   color: var(--text);
-  font-family: var(--font-serif);
+  font-family: var(--font-sans);
   font-size: var(--fs-base);
-  line-height: 1.6;
+  font-weight: 400;
+  line-height: 1.75;
   -webkit-font-smoothing: antialiased;
   text-rendering: optimizeLegibility;
 }

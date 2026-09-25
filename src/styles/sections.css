@@ -11,55 +11,62 @@ main > section {
   place-items: center;
   min-height: 100svh;
   text-align: center;
+  overflow: hidden;
 }
 
 .hero__inner {
+  position: relative;
   display: grid;
   justify-items: center;
-  gap: var(--space-3);
+  gap: var(--space-2);
+}
+
+.hero__monogram {
+  width: clamp(6.5rem, 5rem + 7vw, 9.5rem);
+  margin-block: var(--space-1) var(--space-2);
 }
 
 .hero__names {
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-  font-family: var(--font-script);
-  font-size: var(--fs-script);
+  font-family: var(--font-title);
+  font-size: var(--fs-names);
   font-weight: 400;
-  line-height: 0.95;
-  color: var(--navy);
+  line-height: 1.15;
+  letter-spacing: 0.12em;
+  text-transform: uppercase;
+}
+/* Quebra, se precisar, como "ANDREA / & DIEGO" */
+.hero__names > span { white-space: nowrap; }
+.hero__amp {
+  font-size: 0.7em;
+  color: var(--ouro-deep);
 }
 
-.hero__amp {
-  font-family: var(--font-serif);
-  font-style: italic;
-  font-size: 0.45em;
-  line-height: 1.2;
-  color: var(--accent);
+.hero__dots {
+  display: block;
+  width: min(16rem, 70vw);
 }
 
 .hero__date {
-  display: flex;
-  align-items: center;
-  gap: 1rem;
+  font-family: var(--font-title);
   font-size: var(--fs-lg);
-  font-weight: 500;
-  letter-spacing: 0.18em;
-}
-.hero__date::before,
-.hero__date::after {
-  content: '';
-  width: clamp(1.5rem, 6vw, 3.5rem);
-  height: 1px;
-  background: var(--rule);
+  letter-spacing: 0.22em;
 }
 
 .hero__place {
   font-family: var(--font-sans);
   font-size: var(--fs-xs);
-  letter-spacing: var(--tracking-wide);
+  font-weight: 500;
+  letter-spacing: var(--tracking-caps);
   text-transform: uppercase;
   color: var(--text-muted);
+}
+
+.hero__tagline {
+  margin-top: var(--space-2);
+  font-family: var(--font-script);
+  font-size: var(--fs-script);
+  line-height: 1.1;
+  color: var(--terracota-deep);
 }
 
 .hero__scroll {
@@ -72,7 +79,8 @@ main > section {
   justify-items: center;
   gap: 0.75rem;
   font-family: var(--font-sans);
-  font-size: var(--fs-xs);
+  font-size: 0.68rem;
+  font-weight: 500;
   letter-spacing: 0.2em;
   text-transform: uppercase;
   text-decoration: none;
@@ -81,7 +89,7 @@ main > section {
 .hero__scroll-line {
   width: 1px;
   height: 2.5rem;
-  background: linear-gradient(var(--accent), transparent);
+  background: linear-gradient(var(--ouro), transparent);
 }
 
 @media (prefers-reduced-motion: no-preference) {
@@ -97,9 +105,9 @@ main > section {
   100% { scale: 1 1; opacity: 0; }
 }
 
-@media (min-width: 48rem) {
-  .hero__names { flex-direction: row; gap: 0.2em; }
-  .hero__amp { align-self: center; font-size: 0.5em; }
+/* Em telas baixas a seta encostaria no conteúdo */
+@media (max-height: 44rem) {
+  .hero__scroll { display: none; }
 }
 
 /* 2. Carta ----------------------------------------------------------------- */
@@ -108,15 +116,17 @@ main > section {
   max-width: var(--measure);
   margin-inline: auto;
   padding: var(--space-5) clamp(1.5rem, 6vw, 3.5rem) calc(var(--space-5) + 1.5rem);
-  background: #FDF9F1;
+  background: var(--papel);
   box-shadow: var(--shadow-soft);
   border-radius: var(--radius);
 }
 
 .letter__greeting {
   margin-bottom: var(--space-3);
-  font-size: var(--fs-lg);
-  font-style: italic;
+  font-family: var(--font-script);
+  font-size: calc(var(--fs-script) * 0.8);
+  line-height: 1.2;
+  color: var(--terracota-deep);
 }
 
 .letter__body p + p { margin-top: 1em; }
@@ -125,15 +135,61 @@ main > section {
   margin-top: var(--space-4);
   text-align: right;
 }
-.letter__closing { font-style: italic; color: var(--text-muted); }
+.letter__closing { font-weight: 300; color: var(--text-muted); }
 .letter__signature {
   font-family: var(--font-script);
-  font-size: calc(var(--fs-xl) * 0.9);
+  font-size: var(--fs-script);
   line-height: 1.2;
-  color: var(--accent);
+  color: var(--terracota-deep);
 }
 
-/* 3. Galeria --------------------------------------------------------------- */
+/* 3. Três países ----------------------------------------------------------- */
+.countries {
+  display: grid;
+  justify-items: center;
+  gap: var(--space-3);
+  text-align: center;
+}
+
+.countries__intro {
+  max-width: var(--measure);
+  color: var(--text-muted);
+}
+
+.countries__route {
+  width: 100%;
+  max-width: 46rem;
+  margin-top: var(--space-3);
+}
+
+.countries__dots .dots { height: 3rem; }
+
+.countries__list {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  margin-top: var(--space-2);
+  padding: 0;
+  list-style: none;
+}
+.countries__list li {
+  display: grid;
+  align-content: start;
+  gap: 0.35rem;
+  padding-inline: 0.25rem;
+}
+
+.countries__name {
+  font-family: var(--font-title);
+  font-size: clamp(0.78rem, 0.7rem + 0.5vw, 1.1rem);
+  letter-spacing: 0.14em;
+  text-transform: uppercase;
+}
+.countries__note {
+  font-size: var(--fs-sm);
+  color: var(--text-muted);
+}
+
+/* 4. Galeria --------------------------------------------------------------- */
 .gallery__grid {
   display: grid;
   gap: var(--space-4);
@@ -144,7 +200,7 @@ main > section {
 /* .gallery__item é animado pelo GSAP; a rotação fica na moldura interna */
 .gallery__frame {
   padding: 0.6rem 0.6rem 2.2rem;          /* moldura de foto impressa */
-  background: #FDF9F1;
+  background: var(--papel);
   box-shadow: var(--shadow-soft);
 }
 .gallery__frame img {
@@ -167,7 +223,7 @@ main > section {
   .gallery__item:nth-child(3n + 3) { margin-top: var(--space-3); }
 }
 
-/* 4. Informações ----------------------------------------------------------- */
+/* 5. Informações ----------------------------------------------------------- */
 .details {
   display: grid;
   justify-items: center;
@@ -178,7 +234,7 @@ main > section {
 .details__list {
   width: 100%;
   max-width: var(--measure);
-  margin-top: var(--space-3);
+  margin-top: var(--space-2);
 }
 
 .details__item {
@@ -186,22 +242,31 @@ main > section {
   gap: 0.5rem;
   padding-block: var(--space-4);
 }
-.details__item + .details__item { border-top: 1px solid var(--rule); }
+/* Filete dourado curto entre os blocos */
+.details__item + .details__item {
+  background: linear-gradient(var(--rule), var(--rule)) top center / 3rem 1px no-repeat;
+}
 
 .details__item dt {
   font-family: var(--font-sans);
   font-size: var(--fs-xs);
-  letter-spacing: var(--tracking-wide);
+  font-weight: 500;
+  letter-spacing: var(--tracking-caps);
   text-transform: uppercase;
   color: var(--accent);
 }
-.details__item dd { display: grid; gap: 0.25rem; margin: 0; }
+.details__item dd { display: grid; gap: 0.3rem; margin: 0; }
 
-.details__value { font-size: var(--fs-lg); line-height: 1.3; }
+.details__value {
+  font-family: var(--font-title);
+  font-size: var(--fs-lg);
+  line-height: 1.35;
+  letter-spacing: 0.04em;
+}
 .details__sub { color: var(--text-muted); }
-.details__note { font-style: italic; color: var(--text-muted); }
+.details__note { font-weight: 300; font-style: italic; color: var(--text-muted); }
 
-/* 5. Como chegar ----------------------------------------------------------- */
+/* 6. Como chegar ----------------------------------------------------------- */
 .map {
   display: grid;
   gap: var(--space-4);
@@ -227,29 +292,28 @@ main > section {
   .map { grid-template-columns: 3fr 2fr; align-items: center; }
 }
 
-/* 6. RSVP ------------------------------------------------------------------ */
+/* 7. RSVP — versão negativa da marca (faixa terracota) ---------------------- */
 main > .rsvp {
+  position: relative;
   display: grid;
   justify-items: center;
   gap: var(--space-3);
   margin-top: var(--space-4);
   padding-block: var(--space-6);
-  background: var(--navy);
-  color: var(--creme);
+  background: var(--terracota-deep);
+  color: var(--offwhite);
   text-align: center;
+  overflow: hidden;
 }
 
 .rsvp__title {
   font-family: var(--font-script);
-  font-size: clamp(2.75rem, 2rem + 4vw, 5rem);
+  font-size: clamp(3rem, 2.2rem + 4vw, 5.25rem);
   font-weight: 400;
   line-height: 1.1;
 }
 
-.rsvp__body {
-  max-width: 28rem;
-  color: rgba(249, 244, 234, 0.75);
-}
+.rsvp__body { max-width: 28rem; }
 
 .rsvp__action {
   display: grid;
@@ -260,37 +324,48 @@ main > .rsvp {
 .rsvp__pending {
   font-family: var(--font-sans);
   font-size: var(--fs-xs);
+  font-weight: 500;
   letter-spacing: 0.18em;
   text-transform: uppercase;
-  color: rgba(249, 244, 234, 0.6);
 }
 
-/* 7. Rodapé ---------------------------------------------------------------- */
+/* 8. Rodapé ---------------------------------------------------------------- */
 .site-footer {
+  position: relative;
   display: grid;
   justify-items: center;
   gap: var(--space-2);
   padding: var(--space-6) var(--gutter) var(--space-4);
   text-align: center;
+  overflow: hidden;
 }
 
 .site-footer__signoff {
   font-family: var(--font-script);
-  font-size: var(--fs-xl);
+  font-size: var(--fs-script);
   line-height: 1.2;
+  color: var(--terracota-deep);
 }
 
 .site-footer__line {
   font-family: var(--font-sans);
   font-size: var(--fs-xs);
-  letter-spacing: var(--tracking-wide);
+  font-weight: 500;
+  letter-spacing: var(--tracking-caps);
   text-transform: uppercase;
   color: var(--text-muted);
 }
 
+.site-footer__tagline {
+  font-family: var(--font-title);
+  font-size: var(--fs-sm);
+  letter-spacing: 0.16em;
+  text-transform: uppercase;
+  color: var(--ouro-deep);
+}
+
 .site-footer__credit {
   margin-top: var(--space-3);
-  font-family: var(--font-sans);
   font-size: 0.7rem;
   letter-spacing: 0.1em;
   color: var(--text-muted);

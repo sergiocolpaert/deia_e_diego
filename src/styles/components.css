@@ -3,19 +3,70 @@
 .eyebrow {
   font-family: var(--font-sans);
   font-size: var(--fs-xs);
-  font-weight: 400;
-  letter-spacing: var(--tracking-wide);
+  font-weight: 500;
+  letter-spacing: var(--tracking-caps);
   text-transform: uppercase;
   color: var(--accent);
 }
 
+/* Títulos em Cinzel com o coração dourado da marca logo abaixo */
 .section-title {
-  font-family: var(--font-serif);
-  font-size: var(--fs-xl);
+  font-family: var(--font-title);
+  font-size: var(--fs-title);
   font-weight: 400;
-  line-height: 1.1;
+  line-height: 1.2;
+  letter-spacing: var(--tracking-title);
   text-align: center;
-  letter-spacing: 0.01em;
+  text-transform: uppercase;
+}
+.section-title::after {
+  content: '';
+  display: block;
+  width: 0.7rem;
+  aspect-ratio: 24 / 22;
+  margin: 0.9rem auto 0;
+  background: var(--ouro);
+  -webkit-mask: url('../assets/heart.svg') center / contain no-repeat;
+  mask: url('../assets/heart.svg') center / contain no-repeat;
+}
+
+/* Monograma A & D (PNG da v4) recolorido em ouro via máscara */
+.monogram {
+  aspect-ratio: 1024 / 708;
+  background: linear-gradient(160deg, var(--ouro) 20%, var(--ouro-deep) 100%);
+  -webkit-mask: url('../assets/images/monograma.png') center / contain no-repeat;
+  mask: url('../assets/images/monograma.png') center / contain no-repeat;
+}
+
+/* Traço dos três pontos (markup gerado em ornaments.js) */
+.dots {
+  position: relative;
+  display: block;
+  width: 100%;
+  height: 2.5rem;
+}
+.dots__svg {
+  position: absolute;
+  inset: 0;
+  width: 100%;
+  height: 100%;
+  overflow: visible;
+}
+.dots__line {
+  fill: none;
+  stroke: var(--ouro);
+  stroke-width: 1;
+}
+/* Conta dourada — centralizada por margem (translate é reservado ao GSAP) */
+.dots__bead {
+  --size: 0.6rem;
+  position: absolute;
+  width: var(--size);
+  height: var(--size);
+  margin: calc(var(--size) / -2) 0 0 calc(var(--size) / -2);
+  border-radius: 50%;
+  background: radial-gradient(circle at 35% 30%, var(--ouro-light), var(--ouro) 55%, var(--ouro-deep));
+  box-shadow: 0 1px 2px rgba(74, 58, 48, 0.25);
 }
 
 /* Botões */
@@ -28,9 +79,9 @@
   padding: 1rem 2.25rem;
   border-radius: 999px;
   font-family: var(--font-sans);
-  font-size: var(--fs-sm);
+  font-size: var(--fs-xs);
   font-weight: 500;
-  letter-spacing: 0.2em;
+  letter-spacing: 0.22em;
   text-transform: uppercase;
   text-decoration: none;
   transition: background-color 0.4s var(--ease-out), color 0.4s var(--ease-out),
@@ -38,21 +89,21 @@
 }
 
 .btn--ghost {
-  border: 1px solid var(--navy);
-  color: var(--navy);
+  border: 1px solid var(--terracota-deep);
+  color: var(--terracota-deep);
 }
-.btn--ghost:hover { background: var(--navy); color: var(--creme); }
+.btn--ghost:hover { background: var(--terracota-deep); color: var(--offwhite); }
 
-/* CTA primário: gradiente terracota claro com tinta navy (contraste AA) */
+/* CTA primário: fica sobre a faixa terracota (versão negativa da marca) */
 .btn--primary {
-  background: linear-gradient(120deg, var(--terracota-medium), var(--terracota-light));
-  color: var(--navy);
-  box-shadow: 0 12px 32px -12px rgba(214, 144, 95, 0.7);
+  background: var(--offwhite);
+  color: var(--terracota-deep);
+  box-shadow: 0 12px 28px -14px rgba(74, 58, 48, 0.6);
 }
-.btn--primary:hover { transform: translateY(-2px); box-shadow: 0 18px 40px -14px rgba(214, 144, 95, 0.85); }
+.btn--primary:hover { transform: translateY(-2px); background: var(--papel); }
 
 .btn[aria-disabled='true'] {
-  opacity: 0.5;
+  opacity: 0.55;
   pointer-events: none;
 }
 
@@ -70,7 +121,7 @@
   gap: 0.35rem;
   padding: 0.35rem 0.8rem;
   border-radius: 999px;
-  background: rgba(249, 244, 234, 0.8);
+  background: rgba(247, 243, 238, 0.85);
   backdrop-filter: blur(6px);
   -webkit-backdrop-filter: blur(6px);
   font-family: var(--font-sans);
@@ -88,6 +139,6 @@
   transition: color 0.3s;
 }
 .lang-switch button[aria-pressed='true'] {
-  color: var(--navy);
+  color: var(--text);
   font-weight: 500;
 }

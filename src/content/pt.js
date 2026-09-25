@@ -7,9 +7,9 @@ export default {
 
   hero: {
     eyebrow: 'Com alegria, convidamos você',
-    and: '&',
     date: '03 · 04 · 2027',
-    place: 'Espaço Barcelona · Niterói',
+    place: 'Espaço Barcelona · Niterói – RJ',
+    tagline: 'Três países. Uma história.',
     scroll: 'Abra a carta',
   },
 
@@ -24,6 +24,19 @@ export default {
     signature: 'Andrea & Diego',
   },
 
+  countries: {
+    title: 'Três países',
+    // Texto do conceito do brand book
+    intro:
+      'Nossa história conecta três países que fazem parte de quem somos. Cada lugar representa raízes, memórias e encontros que nos trouxeram até aqui.',
+    // `note` é opcional (ex.: "onde a Andrea nasceu") — vazio fica oculto
+    list: [
+      { name: 'Colômbia', note: '' },
+      { name: 'Brasil', note: '' },
+      { name: 'Equador', note: '' },
+    ],
+  },
+
   gallery: {
     title: 'Nós dois',
     alt: ['Andrea e Diego ao pôr do sol', 'Andrea e Diego', 'Andrea e Diego'],
@@ -35,7 +48,7 @@ export default {
     when: {
       label: 'Quando',
       value: 'Sábado, 3 de abril de 2027',
-      sub: 'Chegada às [a confirmar]',
+      sub: 'Cerimônia às 16h30',
     },
     where: {
       label: 'Onde',
@@ -57,7 +70,7 @@ export default {
   },
 
   rsvp: {
-    title: 'Confirme sua presença',
+    title: 'Contamos com você!',
     body: 'A confirmação, a lista de presentes e todas as informações práticas estão no nosso site do casar.com.',
     cta: 'Confirmar presença',
     pending: 'link em breve',
@@ -66,6 +79,7 @@ export default {
   footer: {
     signoff: 'Até lá.',
     line: '03 · 04 · 2027 · Espaço Barcelona',
+    tagline: 'Três países. Uma história.',
     credit: 'Feito com carinho',
   },
 };

@@ -1,44 +1,47 @@
 /* ==========================================================================
-   Tokens — paleta, tipografia e espaçamento (fonte única de verdade)
-   Navy = tinta/estrutura · Terracota = luz/calor/CTA · Oliva/mustard = só ilustração
+   Tokens — Brand book "Três países. Uma história." (fonte única de verdade)
+   Paleta da marca + variantes profundas para texto (contraste AA sobre off-white).
+   Ver docs/planejamento-brandbook.md §2.2
    ========================================================================== */
 :root {
-  /* Paleta base (aprovada na v4) */
-  --creme: #F9F4EA;
-  --creme-dark: #EEE1CF;
-  --navy: #232D42;
-  --navy-80: rgba(35, 45, 66, 0.8);
-  --navy-60: rgba(35, 45, 66, 0.6);
-  --navy-15: rgba(35, 45, 66, 0.15);
-  --terracota: #BC603C;
-  --terracota-medium: #D6905F;
-  --terracota-light: #E1A180;
-  --olive: #81885C;         /* ilustração apenas */
-  --olive-light: #A4AF91;   /* ilustração apenas */
-  --mustard: #D4AF37;       /* ilustração apenas */
+  /* Paleta da marca */
+  --terracota: #D27A5A;
+  --areia: #E7D6B8;
+  --oliva: #8FA285;
+  --ouro: #C8A15A;
+  --offwhite: #F7F3EE;
+
+  /* Variantes funcionais (não estão no brand book: derivadas para legibilidade) */
+  --tinta: #4A3A30;            /* texto — 9.8:1 */
+  --tinta-suave: #75655A;      /* texto secundário — 5.0:1 */
+  --terracota-deep: #A8522F;   /* links, botões, rótulos, faixa RSVP — 4.9:1 */
+  --ouro-deep: #8A6A2F;        /* rótulos pequenos em dourado — 4.5:1 */
+  --ouro-light: #E9CC8E;       /* brilho das contas douradas */
+  --papel: #FDFBF7;            /* papel da carta e molduras */
 
   /* Papéis funcionais */
-  --bg: var(--creme);
-  --bg-alt: var(--creme-dark);
-  --text: var(--navy);
-  --text-muted: var(--navy-60);
-  --rule: var(--navy-15);
-  --accent: var(--terracota);
-  --gradient-warm: linear-gradient(135deg, var(--terracota) 0%, var(--terracota-medium) 60%, var(--terracota-light) 100%);
+  --bg: var(--offwhite);
+  --bg-alt: var(--areia);
+  --text: var(--tinta);
+  --text-muted: var(--tinta-suave);
+  --rule: rgba(200, 161, 90, 0.45);
+  --accent: var(--terracota-deep);
 
-  /* Tipografia */
-  --font-serif: 'Cormorant Garamond', Georgia, 'Times New Roman', serif;
-  --font-script: 'Great Vibes', 'Snell Roundhand', cursive;
-  --font-sans: 'Jost', 'Helvetica Neue', Arial, sans-serif;
+  /* Tipografia (brand book §04) */
+  --font-title: 'Cinzel', 'Trajan Pro', Georgia, serif;          /* títulos e destaques */
+  --font-sans: 'Montserrat', 'Helvetica Neue', Arial, sans-serif; /* subtítulos (500) e textos (400) */
+  --font-script: 'Allura', 'Snell Roundhand', cursive;           /* detalhes e frases */
 
-  --fs-xs: 0.75rem;                              /* 12 — eyebrows/labels */
-  --fs-sm: 0.875rem;                             /* 14 */
-  --fs-base: clamp(1.125rem, 1.05rem + 0.35vw, 1.3rem); /* corpo serif */
-  --fs-lg: clamp(1.4rem, 1.2rem + 0.9vw, 1.9rem);
-  --fs-xl: clamp(2rem, 1.6rem + 2vw, 3.2rem);
-  --fs-script: clamp(3.4rem, 2.4rem + 6vw, 7.5rem);
+  --fs-xs: 0.72rem;                                        /* rótulos em versal */
+  --fs-sm: 0.875rem;
+  --fs-base: clamp(0.98rem, 0.94rem + 0.2vw, 1.0625rem);   /* corpo Montserrat */
+  --fs-lg: clamp(1.1rem, 1rem + 0.5vw, 1.35rem);
+  --fs-title: clamp(1.5rem, 1.25rem + 1.3vw, 2.3rem);      /* Cinzel, títulos de seção */
+  --fs-names: clamp(1.9rem, 1.3rem + 3.2vw, 3.6rem);       /* Cinzel, nomes no hero */
+  --fs-script: clamp(2.2rem, 1.7rem + 2.6vw, 3.6rem);      /* Allura, frases */
 
-  --tracking-wide: 0.28em;
+  --tracking-caps: 0.24em;
+  --tracking-title: 0.1em;
 
   /* Espaçamento */
   --space-1: 0.5rem;
@@ -48,7 +51,7 @@
   --space-5: 4rem;
   --space-6: clamp(5rem, 4rem + 6vw, 9rem);      /* respiro entre seções */
 
-  --measure: 34rem;                              /* largura de leitura da carta */
+  --measure: 34rem;
   --container: 68rem;
   --gutter: clamp(1.25rem, 5vw, 2.5rem);
 
@@ -56,5 +59,5 @@
   --ease-out: cubic-bezier(0.19, 1, 0.22, 1);
 
   --radius: 2px;
-  --shadow-soft: 0 24px 48px -24px rgba(35, 45, 66, 0.35);
+  --shadow-soft: 0 24px 48px -24px rgba(74, 58, 48, 0.3);
 }

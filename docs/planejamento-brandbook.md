@@ -11,7 +11,7 @@ O site v1 (fases 1–4, 6 e 7) foi construído sobre a identidade da v4 (navy + 
 - **Muda quase toda a camada visual:** paleta, tipografia, monograma, ornamentos e textura (papel → aquarela).
 - **A base técnica fica:** estrutura de seções, arquivos de conteúdo PT/ES, animações GSAP, troca de idioma e Git.
 - **O conceito fica mais forte:** "Três países. Uma história." (Colômbia · Brasil · Equador) dá à carta um fio condutor e pede uma seção nova.
-- **Uma pendência bloqueia:** o monograma do brand book é **A & E**, mas o casal é Andrea & Diego. Isso precisa ser esclarecido antes de mexer em monograma, selo e favicon.
+- ~~**Uma pendência bloqueia:** o monograma do brand book é **A & E**.~~ **Resolvido (25/09):** o monograma é **A & D**. Mantemos o monograma atual, recolorido em ouro.
 
 ---
 
@@ -112,7 +112,7 @@ Continua valendo a regra do plano v1 de usar botânicos e ilustrações como ima
 
 | # | Decisão | Recomendação |
 | --- | --- | --- |
-| D1 | Monograma **A & E** ou **A & D**? | Perguntar à cliente. Bloqueia monograma, selo e favicon |
+| D1 | Monograma **A & E** ou **A & D**? | ✅ **A & D**: mantém o monograma atual (PNG da v4) |
 | D2 | Cor do texto (a marca não define) | Marrom quente **#4A3A30**, harmoniza com a paleta. Navy fica só se a cliente quiser manter o vínculo com a v4 |
 | D3 | Qual terracota é a oficial (#D27A5A × amostra) | Pedir o HEX correto. Até lá, #D27A5A em superfícies e #A8522F em texto e botões |
 | D4 | Estrutura do site | Manter a carta e **acrescentar a seção "Três países"** (combina as opções A e B do plano v1) |
@@ -149,13 +149,24 @@ As fases B1, B2 e B5 (parcial) não dependem da cliente e podem começar já.
 | **B7. Animações da marca** | Traço dos três pontos se desenhando no scroll; pontos acendendo em sequência; aquarelas em fade lento | B2, B4 |
 | **B8. QA** | Contraste AA, peso das aquarelas (meta: < 1,5 MB na primeira carga), mobile, revisão do casal | Todas |
 
+### Status (25/09)
+
+- [x] **B1:** tokens da marca, fontes Cinzel/Montserrat/Allura, variantes de contraste
+- [x] **B2:** coração (máscara CSS) e traço dos três pontos (`src/ornaments.js`)
+- [x] **B3 (parcial):** monograma A & D em ouro no hero; selo e favicon na terracota da marca
+- [ ] **B4:** aquarelas. Há **manchas provisórias em CSS** (hero, rodapé, faixa RSVP) até chegarem os PNGs
+- [x] **B5 (estrutura):** hero com o mote, seção "Três países", 16h30, RSVP "Contamos com você!", tagline no rodapé
+- [ ] B6: ilustrações (aguardando arquivos)
+- [x] **B7 (parcial):** traço dos três pontos se desenha (hero e "Três países"). Falta a animação das aquarelas
+- [ ] B8: QA
+
 Na sequência, entram as fases 8 (URL do casar.com), 9 (QA final) e 10 (deploy) do plano v1.
 
 ---
 
 ## 7. Pendências atualizadas com a cliente
 
-- [ ] **Monograma A & E × Andrea & Diego** (bloqueante)
+- [x] Monograma: A & D (mantido o atual)
 - [ ] Arquivos-fonte: monograma, aquarelas, ilustrações, folhagens
 - [ ] HEX oficial da terracota
 - [ ] Conteúdo da seção "Três países" (quem é de onde)

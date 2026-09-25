@@ -8,6 +8,7 @@ import { config, mapsHref } from './config.js';
 import { gallery, venue, venueSmall } from './gallery.js';
 import { applyLanguage, detectLanguage, rememberLanguage } from './i18n.js';
 import { crossfade, initMotion, refreshMotion } from './motion.js';
+import { renderOrnaments } from './ornaments.js';
 
 function renderGallery() {
   const grid = document.querySelector('[data-gallery]');
@@ -70,6 +71,7 @@ function wireLanguageSwitch() {
   });
 }
 
+renderOrnaments();
 renderGallery();
 wireLinks();
 setLanguage(detectLanguage());

@@ -5,7 +5,7 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>Andrea &amp; Diego · 03.04.2027</title>
     <meta name="description" content="Andrea &amp; Diego — 3 de abril de 2027, Espaço Barcelona, Niterói." />
-    <meta name="theme-color" content="#F9F4EA" />
+    <meta name="theme-color" content="#F7F3EE" />
     <link rel="icon" href="/favicon.svg" type="image/svg+xml" />
 
     <!-- Esconde elementos animados antes do 1º paint; failsafe se o JS não carregar -->
@@ -20,7 +20,7 @@
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
     <link
       rel="stylesheet"
-      href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,300;0,400;0,500;0,600;1,400&family=Great+Vibes&family=Jost:wght@300;400;500&display=swap"
+      href="https://fonts.googleapis.com/css2?family=Allura&family=Cinzel:wght@400;500&family=Montserrat:wght@300;400;500&display=swap"
     />
   </head>
   <body>
@@ -37,13 +37,12 @@
       <section class="hero" id="inicio">
         <div class="hero__inner">
           <p class="eyebrow" data-reveal="intro" data-i18n="hero.eyebrow"></p>
-          <h1 class="hero__names">
-            <span class="hero__name" data-reveal="intro">Andrea</span>
-            <span class="hero__amp" data-reveal="intro" data-i18n="hero.and"></span>
-            <span class="hero__name" data-reveal="intro">Diego</span>
-          </h1>
+          <div class="monogram hero__monogram" data-reveal="intro" role="img" aria-label="A & D"></div>
+          <h1 class="hero__names" data-reveal="intro"><span>Andrea</span> <span><span class="hero__amp">&amp;</span> Diego</span></h1>
+          <span class="hero__dots" data-ornament="dots" data-reveal="intro"></span>
           <p class="hero__date" data-reveal="intro"><time datetime="2027-04-03" data-i18n="hero.date"></time></p>
           <p class="hero__place" data-reveal="intro" data-i18n="hero.place"></p>
+          <p class="hero__tagline" data-reveal="intro" data-i18n="hero.tagline"></p>
         </div>
         <a class="hero__scroll" href="#carta" data-reveal="intro">
           <span data-i18n="hero.scroll"></span>
@@ -64,13 +63,36 @@
         </article>
       </section>
 
-      <!-- 3. Galeria -->
+      <!-- 3. Três países (conceito do brand book) -->
+      <section class="countries" id="tres-paises" aria-labelledby="countries-title">
+        <h2 class="section-title" id="countries-title" data-reveal data-i18n="countries.title"></h2>
+        <p class="countries__intro" data-reveal data-i18n="countries.intro"></p>
+        <div class="countries__route" data-reveal="route">
+          <span class="countries__dots" data-ornament="dots"></span>
+          <ol class="countries__list">
+            <li>
+              <span class="countries__name" data-i18n="countries.list.0.name"></span>
+              <span class="countries__note" data-i18n="countries.list.0.note"></span>
+            </li>
+            <li>
+              <span class="countries__name" data-i18n="countries.list.1.name"></span>
+              <span class="countries__note" data-i18n="countries.list.1.note"></span>
+            </li>
+            <li>
+              <span class="countries__name" data-i18n="countries.list.2.name"></span>
+              <span class="countries__note" data-i18n="countries.list.2.note"></span>
+            </li>
+          </ol>
+        </div>
+      </section>
+
+      <!-- 4. Galeria -->
       <section class="gallery" id="fotos" aria-labelledby="gallery-title">
         <h2 class="section-title" id="gallery-title" data-reveal data-i18n="gallery.title"></h2>
         <div class="gallery__grid" data-gallery></div>
       </section>
 
-      <!-- 4. Informações -->
+      <!-- 5. Informações -->
       <section class="details" id="informacoes" aria-labelledby="details-title">
         <p class="eyebrow" data-reveal data-i18n="details.eyebrow"></p>
         <h2 class="section-title" id="details-title" data-reveal data-i18n="details.title"></h2>
@@ -100,7 +122,7 @@
         </dl>
       </section>
 
-      <!-- 5. Como chegar -->
+      <!-- 6. Como chegar -->
       <section class="map" id="como-chegar" aria-labelledby="map-title">
         <figure class="map__figure" data-reveal>
           <img data-venue loading="lazy" decoding="async" width="1600" height="1067" data-i18n-attr="alt:map.alt" />
@@ -113,7 +135,7 @@
         </div>
       </section>
 
-      <!-- 6. RSVP -->
+      <!-- 7. RSVP -->
       <section class="rsvp" id="rsvp" aria-labelledby="rsvp-title">
         <h2 class="rsvp__title" data-reveal id="rsvp-title" data-i18n="rsvp.title"></h2>
         <p class="rsvp__body" data-reveal data-i18n="rsvp.body"></p>
@@ -126,11 +148,12 @@
       </section>
     </main>
 
-    <!-- 7. Rodapé -->
+    <!-- 8. Rodapé -->
     <footer class="site-footer">
       <div class="seal seal--small" data-reveal="stamp" role="img" aria-label="A & D"></div>
       <p class="site-footer__signoff" data-reveal data-i18n="footer.signoff"></p>
       <p class="site-footer__line" data-i18n="footer.line"></p>
+      <p class="site-footer__tagline" data-i18n="footer.tagline"></p>
       <p class="site-footer__credit" data-i18n="footer.credit"></p>
     </footer>
 
