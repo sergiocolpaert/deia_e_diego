@@ -22,6 +22,8 @@ function renderGallery() {
       const img = document.createElement('img');
       img.src = photo.src;
       img.srcset = `${photo.srcSmall} 800w, ${photo.src} 1600w`;
+      img.width = 1600;
+      img.height = 2400;
       img.sizes = '(min-width: 48rem) 33vw, 100vw';
       img.loading = 'lazy';
       img.decoding = 'async';

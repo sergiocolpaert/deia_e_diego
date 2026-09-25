@@ -37,7 +37,11 @@ export default {
 
   gallery: {
     title: 'Nosotros',
-    alt: ['Andrea y Diego al atardecer', 'Andrea y Diego', 'Andrea y Diego'],
+    alt: [
+      'Andrea y Diego abrazados en un mirador al atardecer',
+      'Andrea y Diego frente con frente, sonriendo, con un ramo de rosas',
+      'Andrea y Diego en un bosque de eucaliptos',
+    ],
   },
 
   details: {

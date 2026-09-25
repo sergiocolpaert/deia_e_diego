@@ -19,7 +19,7 @@ npm run images   # converte fotos de src/assets/images/originals em WebP (requer
 | Data, local, links (casar.com, mapa) | `src/config.js` |
 | Cores, fontes, espaçamentos | `src/styles/tokens.css` |
 | Ornamentos (traço dos três pontos) | `src/ornaments.js` |
-| Fotos | coloque em `src/assets/images/originals/`, rode `npm run images`, ajuste `src/gallery.js` |
+| Fotos | coloque em `src/assets/images/originals/` (nomes `casal-N.jpg` ficam fora do Git), rode `npm run images`, ajuste `src/gallery.js` |
 
 ## Idioma
 
@@ -50,5 +50,5 @@ A adaptação à identidade visual "Três países. Uma história." está planeja
 - [ ] Horário de chegada
 - [ ] Dress code
 - [ ] URL real do casar.com → `config.rsvpUrl`
-- [ ] Fotos escolhidas (3–6)
+- [x] Fotos da galeria (3 recebidas: DSC_1056, DSC_1007, DSC_0583)
 - [ ] Informações extras (hospedagem, cerimonialista…)

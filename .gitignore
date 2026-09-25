@@ -2,3 +2,8 @@ node_modules
 dist
 .DS_Store
 *.local
+
+# Fotos reais do casal: originais em alta ficam só na máquina (repo público).
+# Entram no Git apenas os WebP otimizados gerados por `npm run images`.
+Fotos/
+src/assets/images/originals/casal-*

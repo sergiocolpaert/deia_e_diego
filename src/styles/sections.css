@@ -205,7 +205,7 @@ main > section {
 }
 .gallery__frame img {
   width: 100%;
-  aspect-ratio: 4 / 5;
+  aspect-ratio: 2 / 3;                    /* fotos do casal são retrato 2:3 */
   object-fit: cover;
   background: var(--bg-alt);
 }
