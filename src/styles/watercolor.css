@@ -1,0 +1,104 @@
+/* ==========================================================================
+   Aquarelas da marca (src/assets/brand, geradas por `npm run brand-assets`).
+   Brand book: "usar com moderação" → só cantos de seção e acentos pequenos.
+
+   .deco é o wrapper posicionado (animado pelo GSAP); rotação e opacidade ficam
+   no <img> interno, porque o GSAP sobrescreve translate/rotate do elemento animado.
+   ========================================================================== */
+
+.deco {
+  position: absolute;
+  z-index: 0;
+  pointer-events: none;
+}
+.deco img { width: 100%; }
+
+/* 1. Hero ------------------------------------------------------------------- */
+.deco--hero-stain-tr {
+  top: -1.5rem;
+  right: -5rem;
+  width: clamp(15rem, 52vw, 34rem);
+}
+.deco--hero-stain-tr img { rotate: -14deg; opacity: 0.7; }
+
+.deco--hero-roses {
+  top: -1.25rem;
+  right: -3rem;
+  width: clamp(10.5rem, 30vw, 21rem);
+}
+.deco--hero-roses img { rotate: -10deg; }
+
+.deco--hero-stain-bl {
+  bottom: 2rem;
+  left: -6rem;
+  width: clamp(14rem, 46vw, 30rem);
+}
+.deco--hero-stain-bl img { rotate: 16deg; opacity: 0.6; }
+
+.deco--hero-sprig {
+  bottom: -0.5rem;
+  left: 0.75rem;
+  width: clamp(4.25rem, 10vw, 7rem);
+}
+.deco--hero-sprig img { rotate: 10deg; }
+
+/* Telas baixas: as aquarelas encolhem para não encostar no conteúdo */
+@media (max-height: 44rem) {
+  .deco--hero-roses { width: clamp(8rem, 22vw, 16rem); }
+  .deco--hero-sprig { display: none; }
+}
+
+/* 2. Carta ------------------------------------------------------------------ */
+.deco--letter-olive {
+  top: -2.25rem;
+  left: -1.75rem;
+  z-index: 1;
+  width: clamp(8.5rem, 28vw, 12.5rem);
+}
+.deco--letter-olive img { rotate: -20deg; }
+
+.letter__heart {
+  width: 1.5rem;
+  margin: 0 0 0.6rem auto;
+}
+
+/* 3. Três países: a revoada acima do traço ---------------------------------- */
+.countries__birds {
+  width: clamp(8.5rem, 30vw, 14rem);
+  margin: 0 0 -0.25rem 14%;
+  opacity: 0.9;
+}
+
+/* 4. Galeria: faixa de aquarela atrás do título ----------------------------- */
+.gallery { position: relative; }
+.gallery > .section-title { position: relative; z-index: 1; }
+
+.deco--gallery-stain {
+  top: calc(var(--space-6) - 1.75rem);
+  inset-inline: 0;
+  width: clamp(15rem, 46vw, 26rem);
+  margin-inline: auto;
+}
+.deco--gallery-stain img { rotate: -3deg; opacity: 0.4; }
+
+/* 5. Informações: raminho como divisor entre os blocos ---------------------- */
+.details__item + .details__item {
+  background: url('../assets/brand/raminho.webp') top center / 2.3rem auto no-repeat;
+}
+
+/* 8. Rodapé ----------------------------------------------------------------- */
+/* Espaço extra embaixo para as aquarelas não encostarem no texto */
+.site-footer { padding-bottom: clamp(9rem, 6rem + 8vw, 11rem); }
+
+.deco--footer-palms {
+  bottom: -0.75rem;
+  left: -0.5rem;
+  width: clamp(5rem, 15vw, 10rem);
+}
+
+.deco--footer-stain {
+  bottom: -3rem;
+  right: -6rem;
+  width: clamp(14rem, 38vw, 22rem);
+}
+.deco--footer-stain img { rotate: -12deg; opacity: 0.5; }

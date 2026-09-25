@@ -68,7 +68,7 @@ export default {
   map: {
     title: 'Cómo llegar',
     cta: 'Abrir en el mapa',
-    alt: 'Vista del Espaço Barcelona',
+    alt: 'Ilustración en acuarela del Pan de Azúcar al atardecer, la vista de Niterói hacia Río',
   },
 
   rsvp: {

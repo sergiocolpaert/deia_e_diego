@@ -7,9 +7,11 @@
     "dev": "vite",
     "build": "vite build",
     "preview": "vite preview",
-    "images": "node scripts/optimize-images.mjs"
+    "images": "node scripts/optimize-images.mjs",
+    "brand-assets": "node scripts/watercolor-alpha.mjs"
   },
   "devDependencies": {
+    "sharp": "^0.35.4",
     "vite": "^8.3.1"
   },
   "dependencies": {

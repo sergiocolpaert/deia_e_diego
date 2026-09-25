@@ -242,10 +242,6 @@ main > section {
   gap: 0.5rem;
   padding-block: var(--space-4);
 }
-/* Filete dourado curto entre os blocos */
-.details__item + .details__item {
-  background: linear-gradient(var(--rule), var(--rule)) top center / 3rem 1px no-repeat;
-}
 
 .details__item dt {
   font-family: var(--font-sans);
@@ -274,13 +270,8 @@ main > section {
   margin-inline: auto;
 }
 
-.map__figure img {
-  width: 100%;
-  aspect-ratio: 16 / 10;
-  object-fit: cover;
-  border-radius: var(--radius);
-  box-shadow: var(--shadow-soft);
-}
+/* Ilustração em aquarela do Pão de Açúcar: bordas irregulares, sem moldura */
+.map__figure img { width: 100%; }
 
 .map__body {
   display: grid;

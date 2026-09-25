@@ -1,8 +1,6 @@
 /* ==========================================================================
-   Textura: grão de papel (uma camada) + manchas de aquarela + selo de cera.
-   As manchas abaixo são PROVISÓRIAS (gradientes CSS) até chegarem os PNGs de
-   aquarela do brand book — ver docs/planejamento-brandbook.md, fase B4.
-   Brand book: "usar com moderação" → no máximo uma mancha por canto de seção.
+   Textura: grão de papel (uma camada) + luz na faixa de RSVP + selo de cera.
+   As aquarelas da marca ficam em watercolor.css.
    ========================================================================== */
 
 :root {
@@ -48,56 +46,9 @@ body::before {
   pointer-events: none;
 }
 
-/* Manchas de aquarela (provisórias) ---------------------------------------- */
-.hero::before,
-.hero::after,
-.site-footer::before {
-  content: '';
-  position: absolute;
-  z-index: 0;
-  aspect-ratio: 1;
-  filter: blur(3px);
-  pointer-events: none;
-}
-
-/* Canto superior direito: terracota + areia, com um toque de oliva */
-.hero::before {
-  top: 0;
-  right: 0;
-  translate: 32% -22%;
-  width: min(92vw, 38rem);
-  background:
-    radial-gradient(34% 28% at 50% 46%, rgba(210, 122, 90, 0.7), transparent 72%),
-    radial-gradient(30% 26% at 32% 60%, rgba(231, 214, 184, 1), transparent 70%),
-    radial-gradient(24% 20% at 66% 70%, rgba(210, 122, 90, 0.5), transparent 70%),
-    radial-gradient(18% 16% at 36% 28%, rgba(143, 162, 133, 0.5), transparent 70%);
-}
-
-/* Canto inferior esquerdo: oliva + areia, com um toque de terracota */
-.hero::after {
-  bottom: 0;
-  left: 0;
-  translate: -34% 24%;
-  width: min(88vw, 34rem);
-  background:
-    radial-gradient(32% 26% at 56% 44%, rgba(143, 162, 133, 0.6), transparent 72%),
-    radial-gradient(30% 26% at 38% 60%, rgba(231, 214, 184, 1), transparent 70%),
-    radial-gradient(20% 18% at 68% 64%, rgba(210, 122, 90, 0.45), transparent 70%);
-}
-
-.hero__inner { z-index: 1; }
-
-.site-footer::before {
-  bottom: 0;
-  right: 0;
-  translate: 30% 30%;
-  width: min(80vw, 28rem);
-  background:
-    radial-gradient(32% 26% at 50% 50%, rgba(210, 122, 90, 0.55), transparent 72%),
-    radial-gradient(28% 24% at 34% 62%, rgba(231, 214, 184, 1), transparent 70%),
-    radial-gradient(18% 16% at 62% 32%, rgba(143, 162, 133, 0.45), transparent 70%);
-}
-.site-footer > * { position: relative; z-index: 1; }
+/* As manchas de aquarela ficam em watercolor.css (PNGs da marca) */
+.hero__inner { position: relative; z-index: 1; }
+.site-footer > :not(.deco) { position: relative; z-index: 1; }
 
 /* Faixa de RSVP: luz de aquarela mais clara dentro da terracota */
 main > .rsvp {

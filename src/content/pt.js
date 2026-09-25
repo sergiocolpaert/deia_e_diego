@@ -70,7 +70,7 @@ export default {
   map: {
     title: 'Como chegar',
     cta: 'Abrir no mapa',
-    alt: 'Vista do Espaço Barcelona',
+    alt: 'Ilustração em aquarela do Pão de Açúcar ao pôr do sol, a vista de Niterói para o Rio',
   },
 
   rsvp: {

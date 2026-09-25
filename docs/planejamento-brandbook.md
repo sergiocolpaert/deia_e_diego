@@ -154,11 +154,26 @@ As fases B1, B2 e B5 (parcial) não dependem da cliente e podem começar já.
 - [x] **B1:** tokens da marca, fontes Cinzel/Montserrat/Allura, variantes de contraste
 - [x] **B2:** coração (máscara CSS) e traço dos três pontos (`src/ornaments.js`)
 - [x] **B3 (parcial):** monograma A & D em ouro no hero; selo e favicon na terracota da marca
-- [ ] **B4:** aquarelas. Há **manchas provisórias em CSS** (hero, rodapé, faixa RSVP) até chegarem os PNGs
+- [x] **B4:** aquarelas da marca com fundo removido (`npm run brand-assets`) no hero, carta, galeria, informações e rodapé
 - [x] **B5 (estrutura):** hero com o mote, seção "Três países", 16h30, RSVP "Contamos com você!", tagline no rodapé
-- [ ] B6: ilustrações (aguardando arquivos)
-- [x] **B7 (parcial):** traço dos três pontos se desenha (hero e "Três países"). Falta a animação das aquarelas
+- [x] **B6:** Pão de Açúcar em "Como chegar" (substitui a foto placeholder); revoada na seção "Três países"
+- [x] **B7:** traço dos três pontos se desenha; aquarelas surgem em fade lento; revoada em parallax
 - [ ] B8: QA
+
+### Aquarelas: onde cada uma entrou
+
+| Elemento | Onde |
+| --- | --- |
+| Buquê de rosas + faixa pêssego | Hero, canto superior direito |
+| Raminho de flores + faixa verde-terracota | Hero, canto inferior esquerdo |
+| Ramo de oliveira | Canto do papel da carta |
+| Coração | Despedida da carta |
+| Pássaros | Acima do traço em "Três países" |
+| Faixa terracota-oliva | Atrás do título "Nós dois" |
+| Raminho | Divisor entre os blocos de Informações |
+| Pão de Açúcar | "Como chegar" |
+| Palmeiras + mancha terracota-oliva | Rodapé |
+| **Reserva** (processados, não usados) | Cristo Redentor, palmeiras na ilha, manchas terracota-rosa e terracota-verde, faixa verde, raminho vertical, traço de pontos |
 
 Na sequência, entram as fases 8 (URL do casar.com), 9 (QA final) e 10 (deploy) do plano v1.
 

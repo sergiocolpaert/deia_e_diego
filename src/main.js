@@ -3,9 +3,10 @@ import './styles/base.css';
 import './styles/components.css';
 import './styles/sections.css';
 import './styles/texture.css';
+import './styles/watercolor.css';
 
 import { config, mapsHref } from './config.js';
-import { gallery, venue, venueSmall } from './gallery.js';
+import { gallery } from './gallery.js';
 import { applyLanguage, detectLanguage, rememberLanguage } from './i18n.js';
 import { crossfade, initMotion, refreshMotion } from './motion.js';
 import { renderOrnaments } from './ornaments.js';
@@ -36,11 +37,6 @@ function renderGallery() {
 }
 
 function wireLinks() {
-  const venueImg = document.querySelector('[data-venue]');
-  venueImg.src = venue;
-  venueImg.srcset = `${venueSmall} 800w, ${venue} 1600w`;
-  venueImg.sizes = '(min-width: 48rem) 60vw, 100vw';
-
   document.querySelector('[data-maps]').href = mapsHref();
 
   const rsvp = document.querySelector('[data-rsvp]');

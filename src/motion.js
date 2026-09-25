@@ -4,6 +4,7 @@
 //   data-reveal="intro"   → entrada do hero ao carregar a página
 //   data-reveal="stamp"   → selo "carimbando"
 //   data-reveal="route"   → traço dos três pontos se desenha, contas acendem, nomes surgem
+//   data-reveal="deco"    → aquarela surge em fade lento (as do hero, na abertura)
 // Com prefers-reduced-motion a classe .motion não é aplicada e nada aqui roda.
 import { gsap } from 'gsap';
 import { ScrollTrigger } from 'gsap/ScrollTrigger';
@@ -34,6 +35,33 @@ function intro() {
   });
   const dots = document.querySelector('.hero__dots');
   if (dots) tl.add(drawDots(dots), 0.5);
+
+  const decos = gsap.utils.toArray('.hero [data-reveal="deco"]');
+  decos.forEach((el) => (el.dataset.revealed = ''));
+  tl.to(decos, { autoAlpha: 1, scale: 1, startAt: { scale: 0.94 }, duration: 2.4, ease: 'power2.out', stagger: 0.2 }, 0);
+}
+
+function decos() {
+  gsap.utils.toArray('[data-reveal="deco"]').forEach((el) => {
+    if (el.closest('.hero')) return;
+    ScrollTrigger.create({
+      trigger: el,
+      start: 'top 95%',
+      onEnter: () => reveal([el], { autoAlpha: 1, duration: 2, ease: 'power1.out' }),
+    });
+  });
+
+  // Revoada da seção "Três países" atravessa devagar conforme a rolagem
+  gsap.fromTo(
+    '.countries__birds',
+    { x: -24, y: 12 },
+    {
+      x: 32,
+      y: -14,
+      ease: 'none',
+      scrollTrigger: { trigger: '.countries', start: 'top bottom', end: 'bottom top', scrub: true },
+    }
+  );
 }
 
 const FADE_UP = { autoAlpha: 1, y: 0, startAt: { y: 40 }, duration: 1.4, ease: EASE, stagger: 0.15 };
@@ -100,6 +128,7 @@ export function initMotion() {
   reveals();
   stamps();
   routes();
+  decos();
   ScrollTrigger.addEventListener('refresh', revealPassed);
 
   // Fontes web mudam a altura das seções: recalcula os gatilhos quando carregarem

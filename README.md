@@ -8,7 +8,8 @@ Convite digital bilíngue (PT/ES) no formato "uma carta". Página estática; RSV
 npm install
 npm run dev      # servidor local
 npm run build    # gera dist/ (é isso que vai para a hospedagem)
-npm run images   # converte fotos de src/assets/images/originals em WebP (requer cwebp)
+npm run images        # converte fotos de src/assets/images/originals em WebP (requer cwebp)
+npm run brand-assets  # tira o fundo branco das aquarelas de ./assets → src/assets/brand (WebP com transparência)
 ```
 
 ## Onde editar
@@ -19,6 +20,8 @@ npm run images   # converte fotos de src/assets/images/originals em WebP (requer
 | Data, local, links (casar.com, mapa) | `src/config.js` |
 | Cores, fontes, espaçamentos | `src/styles/tokens.css` |
 | Ornamentos (traço dos três pontos) | `src/ornaments.js` |
+| Aquarelas: posição e tamanho | `src/styles/watercolor.css` |
+| Aquarelas: recorte e remoção de fundo | `scripts/watercolor-alpha.mjs` |
 | Fotos | coloque em `src/assets/images/originals/` (nomes `casal-N.jpg` ficam fora do Git), rode `npm run images`, ajuste `src/gallery.js` |
 
 ## Idioma

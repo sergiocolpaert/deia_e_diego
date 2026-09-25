@@ -12,6 +12,3 @@ export const gallery = [
   { src: c2, srcSmall: c2s },
   { src: c3, srcSmall: c3s },
 ];
-
-export { default as venue } from './assets/images/placeholder-venue-1600.webp';
-export { default as venueSmall } from './assets/images/placeholder-venue-800.webp';

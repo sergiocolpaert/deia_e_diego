@@ -7,3 +7,7 @@ dist
 # Entram no Git apenas os WebP otimizados gerados por `npm run images`.
 Fotos/
 src/assets/images/originals/casal-*
+
+# Aquarelas brutas da marca (PNG com fundo branco, ~17 MB): fonte do
+# `npm run brand-assets`. No Git entram só os WebP com transparência.
+/assets/
