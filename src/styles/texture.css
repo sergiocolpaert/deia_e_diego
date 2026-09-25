@@ -1,0 +1,88 @@
+/* ==========================================================================
+   Textura leve (meio-termo): UMA camada de grão de papel + selo simplificado.
+   Sem deckled edges, sem filtros de deslocamento, sem cera 3D.
+   ========================================================================== */
+
+:root {
+  --paper-grain: url('../assets/paper-noise.svg');
+}
+
+/* Fundo: grão sutil sobre o creme */
+body {
+  background-color: var(--bg);
+  background-image: var(--paper-grain);
+}
+
+/* Vinheta quente fixa (pseudo-elemento: background-attachment: fixed falha no iOS) */
+body::before {
+  content: '';
+  position: fixed;
+  inset: 0;
+  z-index: -1;
+  background: radial-gradient(120% 80% at 50% 0%, transparent 60%, rgba(238, 225, 207, 0.6) 100%);
+  pointer-events: none;
+}
+
+/* A carta e as fotos ganham o mesmo grão, num papel um pouco mais claro */
+.letter__paper,
+.gallery__item {
+  background-color: #FDF9F1;
+  background-image: var(--paper-grain);
+}
+
+/* Dobra discreta no meio da carta */
+.letter__paper::before {
+  content: '';
+  position: absolute;
+  inset: 50% 0 auto;
+  height: 1.25rem;
+  translate: 0 -50%;
+  background: linear-gradient(
+    rgba(35, 45, 66, 0) 0%,
+    rgba(35, 45, 66, 0.03) 50%,
+    rgba(255, 255, 255, 0.35) 50%,
+    rgba(255, 255, 255, 0) 100%
+  );
+  pointer-events: none;
+}
+
+/* Selo ------------------------------------------------------------------- */
+.seal {
+  --seal-size: 5.5rem;
+  position: relative;
+  width: var(--seal-size);
+  aspect-ratio: 1;
+  filter: drop-shadow(0 6px 10px rgba(35, 45, 66, 0.25));
+}
+
+/* Disco de cera: gradiente terracota + anel interno, recortado em borda ondulada */
+.seal::before {
+  content: '';
+  position: absolute;
+  inset: 0;
+  background:
+    radial-gradient(circle, transparent 0 63%, rgba(249, 244, 234, 0.35) 64% 65.5%, transparent 66.5%),
+    radial-gradient(circle at 32% 28%, var(--terracota-light) 0%, var(--terracota) 55%, #9C4A2C 100%);
+  -webkit-mask: url('../assets/seal-shape.svg') center / contain no-repeat;
+  mask: url('../assets/seal-shape.svg') center / contain no-repeat;
+}
+
+/* Monograma A&D em creme */
+.seal::after {
+  content: '';
+  position: absolute;
+  inset: 27%;
+  background: var(--creme);
+  -webkit-mask: url('../assets/images/monograma.png') center / contain no-repeat;
+  mask: url('../assets/images/monograma.png') center / contain no-repeat;
+}
+
+.seal--letter {
+  position: absolute;
+  bottom: 0;
+  left: 50%;
+  translate: -50% 50%;
+  rotate: -8deg;
+}
+
+.seal--small { --seal-size: 3.5rem; }

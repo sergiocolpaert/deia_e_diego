@@ -2,6 +2,7 @@ import './styles/tokens.css';
 import './styles/base.css';
 import './styles/components.css';
 import './styles/sections.css';
+import './styles/texture.css';
 
 import { config, mapsHref } from './config.js';
 import { gallery, venue, venueSmall } from './gallery.js';
