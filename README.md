@@ -23,7 +23,7 @@ npm run images   # converte fotos de src/assets/images/originals em WebP (requer
 ## Fases
 
 - [x] 1. Setup (Vite + vanilla JS, Git, tokens, fontes)
-- [ ] 2. Estrutura estática
+- [x] 2. Estrutura estática
 - [ ] 3. Estilo base e responsividade
 - [ ] 4. Textura leve + selo
 - [ ] 5. Conteúdo real (fotos + textos aprovados)
