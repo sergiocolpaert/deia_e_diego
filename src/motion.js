@@ -76,5 +76,18 @@ export function initMotion() {
 
 export const refreshMotion = () => ScrollTrigger.refresh();
 
+// Troca de conteúdo com um fade curto (instantâneo com reduced motion)
+export function crossfade(targets, swap) {
+  if (!document.documentElement.classList.contains('motion')) {
+    swap();
+    return;
+  }
+  gsap
+    .timeline()
+    .to(targets, { opacity: 0, duration: 0.2, ease: 'power1.in' })
+    .add(swap)
+    .to(targets, { opacity: 1, duration: 0.35, ease: 'power1.out', clearProps: 'opacity' });
+}
+
 // Acesso pelo console durante o desenvolvimento
 if (import.meta.env.DEV) Object.assign(window, { gsap, ScrollTrigger });

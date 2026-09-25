@@ -6,8 +6,8 @@ import './styles/texture.css';
 
 import { config, mapsHref } from './config.js';
 import { gallery, venue, venueSmall } from './gallery.js';
-import { applyLanguage } from './i18n.js';
-import { initMotion } from './motion.js';
+import { applyLanguage, detectLanguage, rememberLanguage } from './i18n.js';
+import { crossfade, initMotion, refreshMotion } from './motion.js';
 
 function renderGallery() {
   const grid = document.querySelector('[data-gallery]');
@@ -49,7 +49,29 @@ function wireLinks() {
   }
 }
 
+function setLanguage(lang) {
+  applyLanguage(lang);
+  document.querySelectorAll('[data-lang]').forEach((btn) => {
+    btn.setAttribute('aria-pressed', String(btn.dataset.lang === lang));
+  });
+}
+
+function wireLanguageSwitch() {
+  document.querySelectorAll('[data-lang]').forEach((btn) => {
+    btn.addEventListener('click', () => {
+      const lang = btn.dataset.lang;
+      if (btn.getAttribute('aria-pressed') === 'true') return;
+      rememberLanguage(lang);
+      crossfade('main, .site-footer', () => {
+        setLanguage(lang);
+        refreshMotion(); // textos mudam de altura
+      });
+    });
+  });
+}
+
 renderGallery();
 wireLinks();
-applyLanguage('pt');
+setLanguage(detectLanguage());
+wireLanguageSwitch();
 initMotion();

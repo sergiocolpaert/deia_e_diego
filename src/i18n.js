@@ -41,3 +41,39 @@ export function applyLanguage(lang) {
   document.documentElement.lang = LANGS[lang];
   document.title = dict.meta.title;
 }
+
+const STORAGE_KEY = 'convite-lang';
+
+/**
+ * Idioma inicial, em ordem de prioridade:
+ *  1. ?lang=es na URL (link direto para convidados de língua espanhola)
+ *  2. escolha anterior do convidado neste navegador
+ *  3. idioma do navegador (es-* → espanhol)
+ *  4. português
+ */
+export function detectLanguage() {
+  const fromUrl = new URLSearchParams(location.search).get('lang');
+  if (Object.hasOwn(dictionaries, fromUrl ?? '')) return fromUrl;
+
+  try {
+    const saved = localStorage.getItem(STORAGE_KEY);
+    if (Object.hasOwn(dictionaries, saved ?? '')) return saved;
+  } catch {
+    /* storage bloqueado (aba anônima etc.) */
+  }
+
+  return navigator.language?.toLowerCase().startsWith('es') ? 'es' : 'pt';
+}
+
+export function rememberLanguage(lang) {
+  try {
+    localStorage.setItem(STORAGE_KEY, lang);
+  } catch {
+    /* sem persistência, sem problema */
+  }
+
+  // Mantém a URL compartilhável no idioma atual
+  const url = new URL(location.href);
+  url.searchParams.set('lang', lang);
+  history.replaceState(null, '', url);
+}
